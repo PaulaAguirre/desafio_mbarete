@@ -17,10 +17,14 @@ class Wod1ScaledController extends Controller
     {
         $equipos = Equipo::where('categoria', '=', 'scaled')->select ('id');
 
-        $resultados = Wod1scaled::whereIn('equipo_id', $equipos)->get();
+        $resultados = Wod1scaled::whereIn('equipo_id', $equipos)->orderBy ('tiempo', 'ASC')->get();
+        $mayor = $resultados[0];
 
-        //dd($resultados);
 
+        if ($resultados->count () == 2)
+        {
+
+        }
 
         return view ('wod1.index', ['resultados' => $resultados]);
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Wod1scaled;
+use App\Wod2scaled;
 use Illuminate\Http\Request;
 
 class PuntajesScaledController extends Controller
@@ -14,7 +15,8 @@ class PuntajesScaledController extends Controller
      */
     public function index()
     {
-        //
+        $wod1 = Wod1scaled::all();
+        $wod2 = Wod2scaled::all ();
     }
 
     /**

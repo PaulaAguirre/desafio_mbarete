@@ -14,7 +14,7 @@ class Wod2scaledController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
