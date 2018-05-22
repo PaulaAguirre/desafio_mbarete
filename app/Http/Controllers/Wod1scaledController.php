@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Wod1scaled;
 use Illuminate\Http\Request;
+use App\Equipo;
 
 class Wod1ScaledController extends Controller
 {
@@ -13,7 +15,14 @@ class Wod1ScaledController extends Controller
      */
     public function index()
     {
-        //
+        $equipos = Equipo::where('categoria', '=', 'scaled')->select ('id');
+
+        $resultados = Wod1scaled::whereIn('equipo_id', $equipos)->get();
+
+        //dd($resultados);
+
+
+        return view ('wod1.index', ['resultados' => $resultados]);
     }
 
     /**
